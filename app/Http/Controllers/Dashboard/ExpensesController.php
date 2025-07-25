@@ -13,7 +13,17 @@ class ExpensesController extends Controller
     public function index()
     {
         $title = "Daily Expenses";
-        $data = SpendingStatus::orderBy('created_at', 'desc')->get();
+        $user = Auth::user();
+
+        if ($user->role === 'super admin') {
+            // Tampilkan semua data
+            $data = SpendingStatus::orderBy('created_at', 'desc')->get();
+        } else {
+            // Hanya tampilkan data milik user yang sedang login
+            $data = SpendingStatus::where('user_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
         return view('dashboard.expenses.index', compact('title', 'data'));
     }
 
@@ -61,6 +71,9 @@ class ExpensesController extends Controller
         $data = SpendingStatus::find($id);
         $data->status = $request->status;
         $data->note = $request->note;
+        if (!$data->status) {
+            return redirect()->back()->with('error', 'Status tidak boleh kosong');
+        }
         $data->save();
         return redirect()->back()->with('success', 'Data Berhasil Diupdate');
     }

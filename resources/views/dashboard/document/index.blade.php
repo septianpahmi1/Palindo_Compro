@@ -27,10 +27,12 @@
                         <div class="card-header">
                             <h3 class="card-title">DataTable Document</h3>
                             <div class="float-right">
-                                <button type="button" class="btn btn-success" data-toggle="modal"
-                                    data-target="#addDoc">
-                                    Tambah
-                                </button>
+                                @if (Auth::user()->role == 'admin')
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#addDoc">
+                                        Tambah
+                                    </button>
+                                @endif
                             </div>
                         </div>
                         @include('dashboard.document.create')

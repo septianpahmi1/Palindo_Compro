@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\Dashboard\CategoriesController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DocumentsController;
+use App\Http\Controllers\Dashboard\CategoriesController;
+use App\Http\Controllers\Dashboard\SubmissionController;
+use App\Http\Controllers\TrackingRegistrationController;
 use App\Http\Controllers\Dashboard\DocumentStatusController;
 use App\Http\Controllers\Dashboard\ExpensesController as DashboardExpensesController;
-use App\Http\Controllers\Dashboard\SubmissionController;
-use App\Http\Controllers\ExpensesController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TrackingRegistrationController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\MessageController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -23,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    // Route::get('/dashboard/data', [DashboardController::class, 'dashboardData'])->name('dashboard.data');
+    Route::get('/dashboard/data', [DashboardController::class, 'dashboardData'])->name('dashboard.data');
     // Route::get('/dashboard/chart-data', [DashboardController::class, 'chartData'])->name('dashboard.chart-data');
 
     Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
@@ -46,6 +48,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/submission', [SubmissionController::class, 'post'])->name('submission.post');
     Route::post('/submission/{id}', [SubmissionController::class, 'update'])->name('submission.update');
     Route::get('/submission/{id}', [SubmissionController::class, 'delete'])->name('submission.delete');
-});
 
+    Route::get('/consultation', [MessageController::class, 'index'])->name('consultation');
+    Route::get('/consultation/read/{id}', [MessageController::class, 'detail'])->name('consultation.detail');
+    Route::get('/consultation/{id}', [MessageController::class, 'destroy'])->name('consultation.destroy');
+    Route::get('/consultation/search', [MessageController::class, 'search'])->name('consultation.search');
+    Route::post('/consultation/delete', [MessageController::class, 'delete'])->name('consultation.delete');
+});
+Route::post('/chatbot', [ChatController::class, 'respond']);
+Route::post('/send-message', [ChatController::class, 'send'])->name('send-message');
 require __DIR__ . '/auth.php';

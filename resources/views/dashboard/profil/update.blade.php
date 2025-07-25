@@ -40,7 +40,9 @@
                                             placeholder="Enter your current password">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
-                                                <i class="fas fa-lock"></i>
+                                                <i class="fas fa-eye toggle-password"
+                                                    toggle="#update_password_current_password"
+                                                    style="cursor:pointer;"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -53,7 +55,8 @@
                                             autocomplete="new-password" />
                                         <div class="input-group-append">
                                             <div class="input-group-text">
-                                                <span class="fas fa-lock"></span>
+                                                <i class="fas fa-eye toggle-password" toggle="#update_password_password"
+                                                    style="cursor:pointer;"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +70,9 @@
                                             autocomplete="new-password" />
                                         <div class="input-group-append">
                                             <div class="input-group-text">
-                                                <span class="fas fa-lock"></span>
+                                                <i class="fas fa-eye toggle-password"
+                                                    toggle="#update_password_password_confirmation"
+                                                    style="cursor:pointer;"></i>
                                             </div>
                                         </div>
                                     </div>

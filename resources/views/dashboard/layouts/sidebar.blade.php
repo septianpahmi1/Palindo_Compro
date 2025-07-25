@@ -2,9 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
-        <span class="brand-text font-weight-light">Alharamain</span>
+        <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
+        <span class="brand-text font-weight-light">AlharamainApp</span>
     </a>
 
     <!-- Sidebar -->
@@ -26,17 +25,19 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">MASTER DATA</li>
-                <li class="nav-item">
-                    <a href="{{ route('categories') }}"
-                        class="nav-link {{ request()->routeIs('categories') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Categories
-                            <!-- <i class="right fas fa-angle-left"></i> -->
-                        </p>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'super admin')
+                    <li class="nav-header">MASTER DATA</li>
+                    <li class="nav-item">
+                        <a href="{{ route('categories') }}"
+                            class="nav-link {{ request()->routeIs('categories') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>
+                                Categories
+                                <!-- <i class="right fas fa-angle-left"></i> -->
+                            </p>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-header">PROJECT</li>
                 <li class="nav-item">
                     <a href="{{ route('documents') }}"
@@ -70,6 +71,20 @@
                         </p>
                     </a>
                 </li>
+                @if (Auth::user()->role == 'admin')
+                    <li class="nav-header">MESSAGE</li>
+                    <li class="nav-item">
+                        <a href="{{ route('consultation') }}"
+                            class="nav-link {{ request()->routeIs('consultation') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-headset"></i>
+                            <p>
+                                Consultation
+                                <!-- <i class="right fas fa-angle-left"></i> -->
+                            </p>
+                        </a>
+                    </li>
+                @endif
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

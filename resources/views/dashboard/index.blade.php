@@ -24,6 +24,32 @@
 
             {{-- @include('dashboard.components.filter') --}}
             <div id="metric-cards" class="row">
+                <div class="col-lg-12 ">
+                    <div class="callout callout-info">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5>Selamat datang <b>{{ Auth::user()->name }}</b>,</h5>
+                                Kami senang menyambut Anda kembali di Dashboard. Di sini, Anda dapat mengelola data,
+                                memantau aktivitas, dan menjelajahi berbagai fitur yang telah tersedia untuk Anda.
+                                Semoga hari Anda produktif!
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Select date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right" id="reservation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -65,49 +91,7 @@
                 </div>
             </div>
 
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <!-- Area Chart -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Consumers</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i></button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <canvas id="areaChart"
-                                    style="min-height:250px;height:250px;max-height:250px;width:100%;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <!-- Line Chart -->
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Total Benefit</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i></button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                                        class="fas fa-times"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <canvas id="lineChart"
-                                    style="min-height:250px;height:250px;max-height:250px;width:100%;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         </div>
-        {{-- @include('dashboard.components.dashboard-js') --}}
+
+
         @include('dashboard.layouts.footer')

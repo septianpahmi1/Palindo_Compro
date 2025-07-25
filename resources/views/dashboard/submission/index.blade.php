@@ -26,12 +26,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">DataTable Monthly Submission</h3>
-                            <div class="float-right">
-                                <button type="button" class="btn btn-success" data-toggle="modal"
-                                    data-target="#addSubmission">
-                                    Tambah
-                                </button>
-                            </div>
+                            @if (Auth::user()->role == 'admin')
+                                <div class="float-right">
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#addSubmission">
+                                        Tambah
+                                    </button>
+                                </div>
+                            @endif
                         </div>
                         @include('dashboard.submission.create')
                         <!-- /.card-header -->
@@ -100,14 +102,18 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group btn-flat btn-block">
-                                                    @if ($item->status == 'Pending')
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#submission{{ $item->id }}">Action</button>
+                                                    @if (Auth::user()->role == 'super admin')
+                                                        @if ($item->status == 'Pending')
+                                                            <button type="button" class="btn btn-primary btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#submission{{ $item->id }}">Action</button>
+                                                        @endif
                                                     @endif
-                                                    <button url="{{ route('submission.delete', $item->id) }}"
-                                                        data-id="{{ $item->id }}" type="button"
-                                                        class="btn btn-danger btn-sm delete">Delete</button>
+                                                    @if (Auth::user()->role == 'admin')
+                                                        <button url="{{ route('submission.delete', $item->id) }}"
+                                                            data-id="{{ $item->id }}" type="button"
+                                                            class="btn btn-danger btn-sm delete">Delete</button>
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>

@@ -14,23 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Ghaleb S Alqrinawi',
-            'email' => 'ghaleb@alharamain.com',
-            'password' => bcrypt('12345678'),
+            'name' => 'Ghaleb S.S Alqrinawi',
+            'email' => 'info@alharamainservices.id',
+            'password' => bcrypt('infoAlharamain#2025'),
             'role' => 'super admin'
         ]);
 
         User::create([
             'name' => 'Ani Nuraeni',
-            'email' => 'ani@alharamain.com',
-            'password' => bcrypt('12345678'),
+            'email' => 'admin@alharamainservices.id',
+            'password' => bcrypt('adminAlharamain#2025'),
             'role' => 'admin'
         ]);
 
         User::create([
             'name' => 'Septian Pahmi',
-            'email' => 'septian@alharamain.com',
-            'password' => bcrypt('12345678'),
+            'email' => 'it@alharamainservices.id',
+            'password' => bcrypt('itAlharamain#2025'),
             'role' => 'admin'
         ]);
     }

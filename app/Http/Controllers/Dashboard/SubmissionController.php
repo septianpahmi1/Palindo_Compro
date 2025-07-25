@@ -13,7 +13,17 @@ class SubmissionController extends Controller
     public function index()
     {
         $title = "Submission";
-        $data = SubmissionStatus::orderBy('created_at', 'desc')->get();
+        $user = Auth::user();
+
+        if ($user->role === 'super admin') {
+            // Tampilkan semua data
+            $data = SubmissionStatus::orderBy('created_at', 'desc')->get();
+        } else {
+            // Hanya tampilkan data milik user yang sedang login
+            $data = SubmissionStatus::where('user_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
         return view('dashboard.submission.index', compact('title', 'data'));
     }
 
@@ -62,6 +72,10 @@ class SubmissionController extends Controller
         $data = SubmissionStatus::find($id);
         $data->status = $request->status;
         $data->note = $request->note;
+
+        if (!$data->status) {
+            return redirect()->back()->with('error', 'Status tidak boleh kosong');
+        }
         $data->save();
         return redirect()->back()->with('success', 'Data Berhasil Diupdate');
     }

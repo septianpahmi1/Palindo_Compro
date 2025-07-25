@@ -2,8 +2,9 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-8 mx-auto text-center">
-                <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Our Services</span>
-                <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">
+                <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-translate="servSubTitle"
+                    data-aos-delay="0">Our Services</span>
+                <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100" data-translate="servTitle">
                     Your Trusted Partner for Legal, Immigration, and Travel
                     Services
                 </h2>
@@ -27,8 +28,8 @@
                                     d="m156.11 158.88h-82.787l-0.655 3.825c64.406 15.216 107.02 51.984 124.72 96.166l-18.002-84.473c-3.108-11.638-12.121-15.111-23.272-15.518"
                                     fill="currentColor" />
                             </svg></span>
-                        <h3 class="fs-5 mb-3">Visa & Immigration Services</h3>
-                        <p class="mb-4">
+                        <h3 class="fs-5 mb-3" data-translate="servContent1">Visa & Immigration Services</h3>
+                        <p class="mb-4" data-translate="servSubContent1">
                             We provide full assistance for visa applications (tourist,
                             business, KITAS) and immigration processes, ensuring
                             smooth, legal entry and stay in Indonesia.
@@ -59,8 +60,8 @@
                             C361.641,363.906,363.75,368.563,363.75,373.875z" fill="currentColor" />
                                 </g>
                             </svg></span>
-                        <h3 class="fs-5 mb-3">KITAS & Stay Permits</h3>
-                        <p class="mb-4">
+                        <h3 class="fs-5 mb-3" data-translate="servContent2">KITAS & Stay Permits</h3>
+                        <p class="mb-4" data-translate="servSubContent2">
                             Expert support in applying for and renewing KITAS
                             (Temporary Stay Permit), ensuring all documentation and
                             requirements are handled properly.
@@ -78,10 +79,10 @@
                                     d="M323.5-192h-9a1.5,1.5,0,0,0-1.5,1.5V-176h12v-14.5A1.5,1.5,0,0,0,323.5-192ZM318-177v-3h2v3Zm6,0h-3v-3.5a.5.5,0,0,0-.5-.5h-3a.5.5,0,0,0-.5.5v3.5h-3v-13.5a.5.5,0,0,1,.5-.5h9a.5.5,0,0,1,.5.5Zm-8-12h2v2h-2Zm4,0h2v2h-2Zm-4,4h2v2h-2Zm4,0h2v2h-2Z"
                                     transform="translate(-313 192)" fill="currentColor" />
                             </svg></span>
-                        <h3 class="fs-5 mb-3">
+                        <h3 class="fs-5 mb-3" data-translate="servContent3">
                             Company Establishment & Legalization
                         </h3>
-                        <p class="mb-4">
+                        <p class="mb-4" data-translate="servSubContent3">
                             We help both local and foreign clients set up legal
                             business entities in Indonesia — including company
                             registration, licenses, and notarial deeds.
@@ -105,8 +106,8 @@
                                         fill="currentColor" opacity="1" data-original="#000000"></path>
                                 </g>
                             </svg></span>
-                        <h3 class="fs-5 mb-3">NPWP (Tax ID) Registration</h3>
-                        <p class="mb-4">
+                        <h3 class="fs-5 mb-3" data-translate="servContent4">NPWP (Tax ID) Registration</h3>
+                        <p class="mb-4" data-translate="servSubContent4">
                             Professional assistance in obtaining NPWP for individuals
                             and companies to ensure tax compliance in Indonesia.
                         </p>
@@ -157,8 +158,8 @@
                                 <line fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
                                     x1="22.5" y1="14.2" x2="22.5" y2="16.5" />
                             </svg></span>
-                        <h3 class="fs-5 mb-3">Public Service Administration</h3>
-                        <p class="mb-4">
+                        <h3 class="fs-5 mb-3" data-translate="servContent5">Public Service Administration</h3>
+                        <p class="mb-4" data-translate="servSubContent5">
                             Fast and reliable support in managing administrative
                             documents and dealing with public service institutions.
                         </p>
@@ -219,8 +220,8 @@
                                     </g>
                                 </g>
                             </svg></span>
-                        <h3 class="fs-5 mb-3">Tourism & Travel Solutions</h3>
-                        <p class="mb-4">
+                        <h3 class="fs-5 mb-3" data-translate="servContent6">Tourism & Travel Solutions</h3>
+                        <p class="mb-4" data-translate="servSubContent6">
                             We offer guidance and custom solutions for tourism-related
                             needs, including travel documentation and trip planning
                             for individuals or corporate clients.

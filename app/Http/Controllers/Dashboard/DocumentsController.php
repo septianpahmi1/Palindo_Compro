@@ -61,14 +61,12 @@ class DocumentsController extends Controller
             'address' => $request->address, //nullable
             'nation' => $request->nation,
         ]);
-
         DocumentStatus::create([
             'document_id' => $document->id,
             'category_id' => $request->category_id,
             'status' => 'Submitted',
             'file' => null,
         ]);
-
         return redirect('document')->with('success', 'Dokumen Berhasil ditambah.');
     }
 

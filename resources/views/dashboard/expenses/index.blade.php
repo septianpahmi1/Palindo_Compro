@@ -27,10 +27,12 @@
                         <div class="card-header">
                             <h3 class="card-title">DataTable Daily Expenses</h3>
                             <div class="float-right">
-                                <button type="button" class="btn btn-success" data-toggle="modal"
-                                    data-target="#addExpenses">
-                                    Tambah
-                                </button>
+                                @if (Auth::user()->role == 'admin')
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#addExpenses">
+                                        Tambah
+                                    </button>
+                                @endif
                             </div>
                         </div>
                         @include('dashboard.expenses.create')
@@ -86,15 +88,18 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group btn-flat btn-block">
-                                                    @if ($item->status == 'Belum Dibayar')
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#action{{ $item->id }}">Action</button>
+                                                    @if (Auth::user()->role == 'super admin')
+                                                        @if ($item->status == 'Belum Dibayar')
+                                                            <button type="button" class="btn btn-primary btn-sm"
+                                                                data-toggle="modal"
+                                                                data-target="#action{{ $item->id }}">Action</button>
+                                                        @endif
                                                     @endif
-
-                                                    <button url="{{ route('expense.delete', $item->id) }}"
-                                                        data-id="{{ $item->id }}" type="button"
-                                                        class="btn btn-danger btn-sm delete">Delete</button>
+                                                    @if (Auth::user()->role == 'admin')
+                                                        <button url="{{ route('expense.delete', $item->id) }}"
+                                                            data-id="{{ $item->id }}" type="button"
+                                                            class="btn btn-danger btn-sm delete">Delete</button>
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>

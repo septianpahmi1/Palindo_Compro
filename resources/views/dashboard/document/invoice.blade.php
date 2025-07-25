@@ -50,7 +50,7 @@
                         {{ $data->document->address }}<br>
                         {{ $data->document->nation }}<br>
                         Phone: {{ $data->document->phone }}<br>
-                        Email: {{ optional($data->document)->name ?? '-' }}
+                        Email: {{ optional($data->document)->email ?? '-' }}
                     </address>
                 </div>
                 <!-- /.col -->
