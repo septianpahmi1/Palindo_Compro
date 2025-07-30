@@ -1,20 +1,20 @@
  <footer class="footer pt-5 pb-5">
      <div class="container">
          <div class="row justify-content-between mb-5 g-xl-5">
-             <div class="col-md-7 mb-5 mb-lg-0">
+             <div class="col-md-4 mb-5 mb-lg-0">
                  <a class="navbar-brand mb-4" href="#home">
                      <img class="img-fluid mb-4" width="300" src="dist/img/combain.png" alt="Logo Ghaleb" />
                  </a>
                  <br>
                  <h3 class="mb-3" data-translate="footerTitle">About</h3>
                  <p class="mb-4" data-translate="footerSubTitle">
-                     is a service-oriented company
+                     PT. Ghaleb Palindo International is a service-oriented company
                      specializing in public services and tourism. We are committed
                      to providing fast, reliable, and high-quality assistance to
                      every client.
                  </p>
              </div>
-             <div class="col-md-3">
+             <div class="col-md-4">
                  <div class="row g-2">
                      <div class="col-md-6 col-lg-12 mb-4 mb-lg-0 quick-contact">
                          <h3 class="mb-3">Contact</h3>
@@ -30,6 +30,25 @@
                              class="d-flex mb-3" href="https://freebootstrap.net"><i
                                  class="bi bi-globe me-3"></i><span>alharamain.com</span></a>
                      </div>
+                 </div>
+             </div>
+             <div class="col-md-4">
+                 <div class="row justify-content-center">
+                     <h3 class="mb-3">Subscribe to Our Newletter </h3>
+                     <form action="{{ route('subscribed') }}" method="POST" enctype="multipart/form-data">
+                         @csrf
+                         <div class="col-md-12 mb-lg-0 w-full">
+                             <input class="form-control mb-3" id="name" type="text" name="name"
+                                 placeholder="Ex. John Doe" required />
+                             <input class="form-control mb-3" id="email" type="email" name="email"
+                                 placeholder="Ex. yourname@mail.com" required />
+                         </div>
+                         <div class="col-md-12">
+                             <button class="btn btn-primary fw-semibold w-full" type="submit">
+                                 Subscribe
+                             </button>
+                         </div>
+                     </form>
                  </div>
              </div>
          </div>
@@ -204,15 +223,15 @@
                                             ? "current"
                                             : "";
                                     return `
-                                     <div class="doc-step ${stateClass}">
-                                         <div class="doc-step-circle">${
-                                             idx + 1
-                                         }</div>
-                                         <div class="doc-step-label">${
-                                             s.label
-                                         }</div>
-                                     </div>
-                                 `;
+                                                                      <div class="doc-step ${stateClass}">
+                                                                          <div class="doc-step-circle">${
+                                                                              idx + 1
+                                                                          }</div>
+                                                                          <div class="doc-step-label">${
+                                                                              s.label
+                                                                          }</div>
+                                                                      </div>
+                                                                  `;
                                 })
                                 .join("")}
                         </div>

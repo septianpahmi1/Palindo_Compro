@@ -88,17 +88,17 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group btn-flat btn-block">
-                                                    @if (Auth::user()->role == 'super admin')
-                                                        @if ($item->status == 'Belum Dibayar')
+                                                    @if ($item->status == 'Belum Dibayar')
+                                                        @if (Auth::user()->role == 'super admin')
                                                             <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
                                                                 data-target="#action{{ $item->id }}">Action</button>
                                                         @endif
-                                                    @endif
-                                                    @if (Auth::user()->role == 'admin')
-                                                        <button url="{{ route('expense.delete', $item->id) }}"
-                                                            data-id="{{ $item->id }}" type="button"
-                                                            class="btn btn-danger btn-sm delete">Delete</button>
+                                                        @if (Auth::user()->role == 'admin')
+                                                            <button url="{{ route('expense.delete', $item->id) }}"
+                                                                data-id="{{ $item->id }}" type="button"
+                                                                class="btn btn-danger btn-sm delete">Delete</button>
+                                                        @endif
                                                     @endif
                                                 </div>
                                             </td>

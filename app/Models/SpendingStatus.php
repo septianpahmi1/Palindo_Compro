@@ -10,6 +10,7 @@ class SpendingStatus extends Model
         'spending_id',
         'note',
         'status',
+
     ];
 
     public function spending()

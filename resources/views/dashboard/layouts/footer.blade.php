@@ -10,6 +10,7 @@
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 <!-- Bootstrap -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -37,6 +38,37 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script>
+    $('#searchByMonth').on('change', function() {
+        let monthValue = $(this).val();
+        let tbody = $('#example1 tbody');
+
+        $.ajax({
+            url: "{{ route('tasks.filter') }}",
+            type: "GET",
+            data: {
+                month: monthValue
+            },
+            success: function(res) {
+                // Hapus DataTables lama
+                $('#example1').DataTable().clear().destroy();
+
+                // Ganti isi tbody
+                tbody.html(res.html);
+
+                // Init ulang DataTables supaya export hanya ambil data baru
+                $('#example1').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: ['copy', 'excel', 'pdf', 'print']
+                });
+            }
+        });
+    });
+</script>
+
+
+
 <script>
     $(function() {
         $("#example1").DataTable({

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Carbon\Carbon;
 use App\Models\Submission;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\SubmissionStatus;
 use App\Http\Controllers\Controller;
@@ -20,7 +22,10 @@ class SubmissionController extends Controller
             $data = SubmissionStatus::orderBy('created_at', 'desc')->get();
         } else {
             // Hanya tampilkan data milik user yang sedang login
-            $data = SubmissionStatus::where('user_id', $user->id)
+            $data = SubmissionStatus::with('submission')
+                ->whereHas('submission', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
                 ->orderBy('created_at', 'desc')
                 ->get();
         }
@@ -62,6 +67,7 @@ class SubmissionController extends Controller
 
         SubmissionStatus::create([
             'submission_id' => $data->id,
+            'submission_date' => Carbon::now(),
         ]);
 
         return redirect()->back()->with('success', 'Data Berhasil Dibuat');
@@ -98,4 +104,31 @@ class SubmissionController extends Controller
         $data->delete();
         return redirect()->back()->with('success', 'Data Berhasil Dihapus');
     }
+
+    // public function filterByMonth(Request $request)
+    // {
+    //     $month = $request->monthSubmission; // format: YYYY-MM atau null
+
+    //     // $bulan = (int) substr($month, 5, 2);
+    //     // $tahun = (int) substr($month, 0, 4);
+
+    //     // $data = SubmissionStatus::with('submission')
+    //     //     ->when($month, function ($query) use ($bulan, $tahun) {
+    //     //         $query->whereHas('submission', function ($q) use ($bulan, $tahun) {
+    //     //             $q->whereMonth('submission_date', $bulan)
+    //     //                 ->whereYear('submission_date', $tahun);
+    //     //         });
+    //     //     })
+    //     //     ->get();
+    //     $data = SubmissionStatus::with('submission')
+    //         ->when($month, function ($query) use ($month) {
+    //             // filter hanya kalau month ada
+    //             $query->whereMonth('submission_date', substr($month, 5, 2))
+    //                 ->whereYear('submission_date', substr($month, 0, 4));
+    //         })
+    //         ->get();
+    //     return response()->json([
+    //         'html' => view('dashboard.submission.table', compact('data'))->render()
+    //     ]);
+    // }
 }

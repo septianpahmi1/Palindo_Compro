@@ -26,20 +26,26 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="row align-items-center">
-                                <div class="col-lg-10 col-md-6 mb-2 mb-lg-0">
-                                    <h3 class="card-title">DataTable Monthly Submission</h3>
+                                <!-- Judul -->
+                                <div class="col-lg-9 col-md-6 mb-2 mb-lg-0">
+                                    <h3 class="card-title">DataTable Monthly Task</h3>
+                                </div>
+
+                                <div class="col-lg-2 col-md-3 mb-2 mb-lg-0">
+                                    <input type="month" class="form-control" id="searchByMonth" />
                                 </div>
                                 @if (Auth::user()->role == 'admin')
-                                    <div class="col-lg-2 col-md-12 text-lg-right">
+                                    <div class="col-lg-1 col-md-12 text-lg-right">
                                         <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#addSubmission">
+                                            data-target="#addTask">
                                             Tambah
                                         </button>
                                     </div>
                                 @endif
                             </div>
                         </div>
-                        @include('dashboard.submission.create')
+
+                        @include('dashboard.task.create')
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -49,17 +55,15 @@
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Title</th>
-                                        <th>Qty</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
-                                        <th>Importance</th>
+                                        <th>Start at</th>
+                                        <th>End at</th>
                                         <th>Status</th>
                                         <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @include('dashboard.submission.table', ['data' => $data])
+                                    @include('dashboard.task.tabel', ['data' => $data])
                                 </tbody>
                             </table>
                         </div>
@@ -69,4 +73,6 @@
         </div>
     </div>
 </div>
+
+
 @include('dashboard.layouts.footer')

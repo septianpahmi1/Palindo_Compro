@@ -8,11 +8,38 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ config('app.name', 'Laravel') }} - PT Ghaleb Palindo International</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QNDQYXRH1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0QNDQYXRH1');
+    </script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WH3NN3FR');
+    </script>
     <!-- ======= SEO Meta Tags ======= -->
     <meta name="description"
         content="PT Ghaleb Palindo International adalah perusahaan jasa profesional di bidang pengurusan visa, KITAS, NPWP, izin tinggal, registrasi perusahaan, dan layanan keimigrasian. Layanan cepat, aman, dan terpercaya untuk individu, perusahaan, dan institusi.">
     <meta name="keywords"
-        content="pengurusan visa, KITAS, NPWP, izin tinggal, jasa keimigrasian, registrasi perusahaan, legalisasi dokumen, layanan publik, jasa dokumen resmi, PT Ghaleb Palindo">
+        content="PT Ghaleb Palindo International, pengurusan visa, KITAS, NPWP, izin tinggal, jasa keimigrasian, registrasi perusahaan, legalisasi dokumen, layanan publik, jasa dokumen resmi, PT Ghaleb Palindo, alharamain, Alharamain, alharamain services">
     <meta name="author" content="PT Ghaleb Palindo International">
 
     <!-- ======= Open Graph for Social Media ======= -->
@@ -26,6 +53,23 @@
     <meta property="og:type" content="website">
     {{-- google console --}}
     <meta name="google-site-verification" content="Zku4aZvFSHotyFN8Rm9eWyDpoDTnanyRnWk4Q6Emc2Q" />
+
+    @php
+        $organizationJsonLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            'name' => 'PT Ghaleb Palindo International',
+            'url' => 'https://alharamainservices.id',
+            'logo' => asset('dist/img/logo_1080.png'),
+            'sameAs' => ['https://www.instagram.com/palindo.International'],
+        ];
+    @endphp
+
+    <script type="application/ld+json">
+    {!! json_encode($organizationJsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+    </script>
+
+
     <!-- ======= Favicon/Icon ======= -->
     <link rel="icon" href="{{ asset('dist/img/logo.png') }}" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('dist/img/logo_1080.png') }}">

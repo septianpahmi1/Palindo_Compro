@@ -10,6 +10,7 @@ class SubmissionStatus extends Model
         'submission_id',
         'status',
         'note',
+        'submission_date'
     ];
 
     public function submission()

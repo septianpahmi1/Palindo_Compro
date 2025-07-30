@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('submission_id')->constrained('submissions')->onDelete('cascade');
             $table->enum('status', ['Approved', 'Disapproved', 'Pending'])->default('Pending');
             $table->string('note')->nullable();
+            $table->date('submission_date')->nullable();
             $table->timestamps();
         });
     }

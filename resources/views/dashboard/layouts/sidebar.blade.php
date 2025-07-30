@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
+        <img src="dist/img/logo_palindo.png" alt="Alharamain Logo" class="brand-image " style="opacity: .8">
         <span class="brand-text font-weight-light">AlharamainApp</span>
     </a>
 
@@ -84,6 +84,16 @@
                         </a>
                     </li>
                 @endif
+                <li class="nav-header">MONTHLY REPORT</li>
+                <li class="nav-item">
+                    <a href="{{ route('task') }}" class="nav-link {{ request()->routeIs('task') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-layer-group"></i>
+                        <p>
+                            Task
+                            <!-- <i class="right fas fa-angle-left"></i> -->
+                        </p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

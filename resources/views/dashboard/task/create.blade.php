@@ -1,24 +1,24 @@
-<div class="modal fade" id="addExpenses">
+<div class="modal fade" id="addTask">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Pengeluaran</h4>
+                <h4 class="modal-title">Tambah Tugas</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('expense.post') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('task.post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="exampleInputFile">Invocie/ Nota<code>*</code></label>
+                                <label for="exampleInputFile">File<code>*</code></label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" accept="image/*"
                                             class="custom-file-input @error('image') is-invalid @enderror"
-                                            name="image" id="exampleInputFile" required>
+                                            name="image" id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>
@@ -39,23 +39,23 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="quantity">Quantity<code>*</code></label>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*"
-                                    oninput="this.value=this.value.replace(/[^0-9]/g,'');"
-                                    class="form-control @error('quantity') is-invalid @enderror"
-                                    placeholder="Masukan jumlah barang" id="quantity" name="quantity" required />
+                                <label for="start_at">Start at<code>*</code></label>
+                                <input type="date"
+                                    class="form-control @error('start_at') is-invalid @enderror"id="start_at"
+                                    name="start_at" required />
                             </div>
-                            @error('quantity')
+                            @error('start_at')
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="price">Price<code>*</code></label>
-                                <input type="text" class="form-control rupiah @error('price') is-invalid @enderror"
-                                    placeholder="Masukan harga" id="price" name="price" />
+                                <label for="end_at">End at<code>*</code></label>
+                                <input type="date"
+                                    class="form-control @error('end_at') is-invalid @enderror"id="end_at" name="end_at"
+                                    required />
                             </div>
-                            @error('price')
+                            @error('end_at')
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
@@ -65,11 +65,22 @@
                                 <select type="text" class="form-control @error('status') is-invalid @enderror"
                                     id="status" name="status" required>
                                     <option value="" selected disabled>-- Pilih Status --</option>
-                                    <option value="Dibayarkan">Dibayarkan</option>
-                                    <option value="Belum Dibayarkan">Belum Dibayarkan</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Not Completed">Not Completed</option>
                                 </select>
                             </div>
                             @error('status')
+                                <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea type="text" class="form-control @error('description') is-invalid @enderror" placeholder="Masukan deskripsi"
+                                    id="description" name="description"></textarea>
+                            </div>
+                            @error('description')
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
