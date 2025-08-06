@@ -40,10 +40,10 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link scroll-link active" data-translate="Navhome" href="#home">Home</a>
+                                <a class="nav-link scroll-link active" data-translate="Navhome" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll-link" data-translate="Navabout" href="#about">About</a>
+                                <a class="nav-link scroll-link" data-translate="Navabout" href="/about">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll-link" data-translate="Navhowitworks" href="#how-it-works">How
@@ -51,15 +51,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll-link" data-translate="Navservices"
-                                    href="#services">Services</a>
+                                    href="/services">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll-link" data-translate="Navtrack" href="#track"><strong>Track
+                                <a class="nav-link scroll-link" data-translate="Navtrack" href="/track"><strong>Track
                                         Document</strong></a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link scroll-link" data-translate="Navconsultation"
-                                    href="#consultation">Consultation
+                                    href="/consultation">Consultation
                                     Us</a>
                                 <!-- Language Selector -->
                                 <select id="languageSwitcher" class="form-select form-select-sm ms-2"

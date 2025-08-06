@@ -31,10 +31,15 @@
                                     <h3 class="card-title">DataTable Monthly Task</h3>
                                 </div>
 
+                                @if (Auth::user()->role == 'super admin')
+                                <div class="col-lg-3 col-md-3 mb-2 mb-lg-0">
+                                    <input type="month" class="form-control" id="searchByMonth" />
+                                </div>
+                                @endif
+                                @if (Auth::user()->role == 'admin')
                                 <div class="col-lg-2 col-md-3 mb-2 mb-lg-0">
                                     <input type="month" class="form-control" id="searchByMonth" />
                                 </div>
-                                @if (Auth::user()->role == 'admin')
                                     <div class="col-lg-1 col-md-12 text-lg-right">
                                         <button type="button" class="btn btn-success" data-toggle="modal"
                                             data-target="#addTask">

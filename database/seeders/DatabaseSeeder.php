@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('itAlharamain#2025'),
             'role' => 'admin'
         ]);
+        
     }
 }

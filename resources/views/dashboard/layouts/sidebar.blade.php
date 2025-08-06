@@ -25,7 +25,6 @@
                         </p>
                     </a>
                 </li>
-                @if (Auth::user()->role == 'super admin')
                     <li class="nav-header">MASTER DATA</li>
                     <li class="nav-item">
                         <a href="{{ route('categories') }}"
@@ -37,7 +36,6 @@
                             </p>
                         </a>
                     </li>
-                @endif
                 <li class="nav-header">PROJECT</li>
                 <li class="nav-item">
                     <a href="{{ route('documents') }}"

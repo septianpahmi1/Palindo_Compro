@@ -22,12 +22,12 @@
                             <i class="bi bi-telephone"></i>
                         </div>
                         <span>
-                            <span class="d-block">Phone</span><strong>+62 813-8872-5056</strong></span>
+                            <span class="d-block">Phone</span><strong>+62 813-2020-558</strong></span>
                     </div>
                     <div class="d-flex align-items-start gap-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon d-block"><i class="bi bi-send"></i></div>
                         <span>
-                            <span class="d-block">Email</span><strong>info@alharamainservices.id</strong></span>
+                            <span class="d-block">Email</span><strong>admin@alharamainservices.id</strong></span>
                     </div>
                     <div class="d-flex align-items-start gap-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon d-block">

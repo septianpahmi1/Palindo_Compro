@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\DocumentStatusController;
 use App\Http\Controllers\Dashboard\ExpensesController as DashboardExpensesController;
 use App\Http\Controllers\Dashboard\NewsletterController;
 use App\Http\Controllers\Dashboard\TaskController;
+use App\Http\Controllers\PageController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -56,11 +57,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/submission/{id}', [SubmissionController::class, 'delete'])->name('submission.delete');
     // Route::get('/submission/filter', [SubmissionController::class, 'filterByMonth'])->name('submission.filter');
 
-    Route::get('/consultation', [MessageController::class, 'index'])->name('consultation');
-    Route::get('/consultation/read/{id}', [MessageController::class, 'detail'])->name('consultation.detail');
-    Route::get('/consultation/{id}', [MessageController::class, 'destroy'])->name('consultation.destroy');
-    Route::get('/consultation/search', [MessageController::class, 'search'])->name('consultation.search');
-    Route::post('/consultation/delete', [MessageController::class, 'delete'])->name('consultation.delete');
+    Route::get('/message', [MessageController::class, 'index'])->name('consultation');
+    Route::get('/message/read/{id}', [MessageController::class, 'detail'])->name('consultation.detail');
+    Route::get('/message/{id}', [MessageController::class, 'destroy'])->name('consultation.destroy');
+    Route::get('/message/search', [MessageController::class, 'search'])->name('consultation.search');
+    Route::post('/message/delete', [MessageController::class, 'delete'])->name('consultation.delete');
 
     Route::get('/task', [TaskController::class, 'index'])->name('task');
     Route::post('/task', [TaskController::class, 'post'])->name('task.post');
@@ -70,4 +71,12 @@ Route::middleware('auth')->group(function () {
 Route::post('/chatbot', [ChatController::class, 'respond']);
 Route::post('/send-message', [ChatController::class, 'send'])->name('send-message');
 Route::post('/subscribe-newsletter', [NewsletterController::class, 'store'])->name('subscribed');
+
+Route::get('/', [PageController::class, 'home']);
+
+Route::get('/{slug}', [PageController::class, 'section'])
+    ->whereIn('slug', ['about', 'services', 'consultation', 'track']);
+
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 require __DIR__ . '/auth.php';

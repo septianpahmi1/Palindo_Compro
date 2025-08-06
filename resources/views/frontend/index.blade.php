@@ -7,4 +7,15 @@
 @include('frontend.components.services')
 @include('frontend.components.track')
 @include('frontend.components.contact')
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let slug = @json($slug ?? null);
+    if (slug) {
+        let target = document.getElementById(slug);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+});
+</script>
 @include('frontend.partials.footer')

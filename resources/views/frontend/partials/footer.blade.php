@@ -24,11 +24,11 @@
                                  Cianjur, Jawa Barat 43253, Indonesia</span>
                          </p>
                          <a class="d-flex mb-3" href="mailto:info@mydomain.com"><i
-                                 class="bi bi-envelope-fill me-3"></i><span>info@alharamainservices.id</span></a><a
+                                 class="bi bi-envelope-fill me-3"></i><span>admin@alharamainservices.id</span></a><a
                              class="d-flex mb-3" href="tel://+123456789900"><i
-                                 class="bi bi-telephone-fill me-3"></i><span>+62 813-8872-5056</span></a><a
+                                 class="bi bi-telephone-fill me-3"></i><span>+62 813-2020-558</span></a><a
                              class="d-flex mb-3" href="https://freebootstrap.net"><i
-                                 class="bi bi-globe me-3"></i><span>alharamain.com</span></a>
+                                 class="bi bi-globe me-3"></i><span>www.alharamainservices.id</span></a>
                      </div>
                  </div>
              </div>
