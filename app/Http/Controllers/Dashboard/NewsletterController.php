@@ -24,6 +24,6 @@ class NewsletterController extends Controller
 
         Mail::to($newslatter->email)->send(new NewsletterSubscribedHTML($newslatter));
 
-        return redirect('/#footer')->with('success', 'Successfully subscribed to the newsletter!');
+        return redirect('/')->with('success', 'Successfully subscribed to the newsletter!');
     }
 }

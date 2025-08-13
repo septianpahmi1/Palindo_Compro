@@ -151,4 +151,12 @@ Route::middleware('auth')->group(function () {
 Route::post('/chatbot', [ChatController::class, 'respond']);
 Route::post('/send-message', [ChatController::class, 'send'])->name('send-message');
 Route::post('/subscribe-newsletter', [NewsletterController::class, 'store'])->name('subscribed');
+
+Route::get('/', [PageController::class, 'home']);
+
+Route::get('/{slug}', [PageController::class, 'section'])
+    ->whereIn('slug', ['about', 'services', 'consultation', 'track']);
+
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 require __DIR__ . '/auth.php';

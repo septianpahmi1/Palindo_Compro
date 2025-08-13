@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role' => 'super admin'
         ]);
+        
     }
 }

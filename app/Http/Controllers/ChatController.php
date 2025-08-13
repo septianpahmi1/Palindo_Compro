@@ -41,6 +41,6 @@ class ChatController extends Controller
 
         $message = Message::create($request->all());
         // return redirect('/#consul')
-        return redirect('/#consultation')->with('success', 'Message sent successfully!');
+        return redirect('/consultation')->with('success', 'Message sent successfully!');
     }
 }

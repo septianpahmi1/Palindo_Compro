@@ -26,12 +26,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">DataTable Categories</h3>
+                            @if(Auth::user()->role == 'super admin')
                             <div class="float-right">
                                 <button type="button" class="btn btn-success" data-toggle="modal"
                                     data-target="#addCat">
                                     Tambah
                                 </button>
                             </div>
+                            @endif
                         </div>
                         @include('dashboard.categories.create')
                         <!-- /.card-header -->
@@ -44,7 +46,9 @@
                                         <th>Cost</th>
                                         <th>Benefit</th>
                                         <th>Total</th>
+                                        @if(Auth::user()->role == 'super admin')
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,6 +59,7 @@
                                             <td>Rp {{ number_format($item->cost, 0, ',', '.') }}</td>
                                             <td>Rp {{ number_format($item->benefit, 0, ',', '.') }}</td>
                                             <td>Rp {{ number_format($item->total, 0, ',', '.') }}</td>
+                                            @if(Auth::user()->role == 'super admin')
                                             <td>
                                                 <div class="btn-group btn-flat btn-block">
                                                     <button type="button" class="btn btn-primary btn-sm"
@@ -67,6 +72,7 @@
                                                             class="fas fa-trash"></i></button>
                                                 </div>
                                             </td>
+                                            @endif
                                         </tr>
                                         @include('dashboard.categories.update')
                                     @endforeach

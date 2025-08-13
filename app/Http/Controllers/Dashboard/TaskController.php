@@ -14,6 +14,21 @@ class TaskController extends Controller
         $title = "Task Report";
 
         $data = Task::orderBy('created_at', 'desc')->get();
+        
+        $user = Auth::user();
+
+        if ($user->role === 'super admin') {
+            // Tampilkan semua data
+            $data = Task::orderBy('created_at', 'desc')->get();
+        } else {
+            // Hanya tampilkan data milik user yang sedang login
+            $data = Task::with('user')
+                ->whereHas('user', function ($query) use ($user) {
+                    $query->where('user_id', $user->id);
+                })
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
 
         return view('dashboard.task.index', compact('title', 'data'));
     }
@@ -24,18 +39,17 @@ class TaskController extends Controller
         if (!$data) {
             return redirect()->back()->with('error', 'Data tidak ditemukan');
         }
-        $data->delete;
+        $data->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 
     public function post(Request $request)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'title' => 'required|string',
             'start_at' => 'required'
         ]);
-
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
