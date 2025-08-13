@@ -25,7 +25,7 @@
                         </p>
                     </a>
                 </li>
-                @if (Auth::user()->role == 'finance' || Auth::user()->role == 'super admin')
+                @if (Auth::user()->role == 'super admin')
                     <li class="nav-header">MASTER DATA</li>
                     <li class="nav-item">
                         <a href="{{ route('categories') }}"
@@ -74,7 +74,7 @@
                         </p>
                     </a>
                 </li>
-                @if (Auth::user()->role == 'finance' || Auth::user()->role == 'super admin')
+                @if (Auth::user()->role == 'super admin')
                     <li class="nav-header">KEUANGAN</li>
                     <li class="nav-item">
                         <a href="{{ route('payment') }}"
@@ -187,7 +187,7 @@
                         </a>
                     </li>
                 @endif
-                @if (Auth::user()->role == 'finance' || Auth::user()->role == 'super admin')
+                @if (Auth::user()->role == 'super admin')
                     <li class="nav-header">REPORT</li>
                     <li
                         class="nav-item {{ request()->routeIs(['profit-loss', 'general-journal', 'salesReport', 'purchaseReport']) ? ' menu-open' : '' }}">
