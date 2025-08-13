@@ -47,6 +47,7 @@
                                         <th>Title</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
+                                        <th>ٍSubtraction</th>
                                         <th>Total</th>
                                         <th>Status</th>
                                         <th>Status Pembayaran</th>
@@ -67,6 +68,7 @@
                                             <td>{{ $item->spending->title }}</td>
                                             <td>{{ $item->spending->quantity }}</td>
                                             <td>Rp {{ number_format($item->spending->price, 0, ',', '.') }}</td>
+                                            <td>Rp {{ number_format($item->spending->subtraction, 0, ',', '.') }}</td>
                                             <td>Rp {{ number_format($item->spending->total, 0, ',', '.') }}</td>
                                             <td>
                                                 @if ($item->spending->status == 'Belum Dibayarkan')
@@ -92,12 +94,14 @@
                                                         @if (Auth::user()->role == 'super admin')
                                                             <button type="button" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
-                                                                data-target="#action{{ $item->id }}">Action</button>
+                                                                data-target="#action{{ $item->id }}"><i
+                                                                    class="fas fa-bars"></i></button>
                                                         @endif
                                                         @if (Auth::user()->role == 'admin')
                                                             <button url="{{ route('expense.delete', $item->id) }}"
                                                                 data-id="{{ $item->id }}" type="button"
-                                                                class="btn btn-danger btn-sm delete">Delete</button>
+                                                                class="btn btn-danger btn-sm delete"><i
+                                                                    class="fas fa-trash"></i></button>
                                                         @endif
                                                     @endif
                                                 </div>

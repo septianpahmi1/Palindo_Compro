@@ -30,8 +30,15 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Septian Pahmi',
             'email' => 'it@alharamainservices.id',
-            'password' => bcrypt('itAlharamain#2025'),
-            'role' => 'admin'
+            'password' => bcrypt('password'),
+            'role' => 'super admin'
+        ]);
+
+        User::create([
+            'name' => 'Ruslan Nurdiansyah',
+            'email' => 'finance@alharamainservices.id',
+            'password' => bcrypt('password'),
+            'role' => 'super admin'
         ]);
     }
 }

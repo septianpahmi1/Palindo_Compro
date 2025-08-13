@@ -44,7 +44,7 @@
                     @endif
                     @if (Auth::user()->role == 'admin')
                         <button url="{{ route('submission.delete', $item->id) }}" data-id="{{ $item->id }}"
-                            type="button" class="btn btn-danger btn-sm delete">Delete</button>
+                            type="button" class="btn btn-danger btn-sm delete"><i class="fas fa-trash"></i></button>
                     @endif
                 @endif
             </div>

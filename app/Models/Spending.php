@@ -12,6 +12,7 @@ class Spending extends Model
         'title',
         'quantity',
         'price',
+        'subtraction',
         'total',
         'status'
     ];

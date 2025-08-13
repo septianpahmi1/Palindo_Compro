@@ -9,7 +9,7 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 <!-- Bootstrap -->
@@ -17,6 +17,8 @@
 <!-- AdminLTE -->
 <script src="dist/js/adminlte.js"></script>
 <script src="dist/js/input-idr.js"></script>
+<script src="dist/js/discount.js"></script>
+<script src="dist/js/salary.js"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
 
 
@@ -162,6 +164,8 @@
         $('.select2bs4').select2({
             theme: 'bootstrap4'
         });
+
+
 
         // Date range picker
         $('#reservation').daterangepicker({

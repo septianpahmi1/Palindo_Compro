@@ -37,7 +37,7 @@
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="quantity">Quantity<code>*</code></label>
                                 <input type="text" inputmode="numeric" pattern="[0-9]*"
@@ -49,7 +49,7 @@
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="price">Price<code>*</code></label>
                                 <input type="text" class="form-control rupiah @error('price') is-invalid @enderror"
@@ -59,7 +59,18 @@
                                 <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="subtraction">Subtraction</label>
+                                <input type="text"
+                                    class="form-control rupiah @error('subtraction') is-invalid @enderror"
+                                    placeholder="Masukan pengurangan" id="subtraction" name="subtraction" />
+                            </div>
+                            @error('subtraction')
+                                <div class="invalid-feedback d-block mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="status">Status<code>*</code></label>
                                 <select type="text" class="form-control @error('status') is-invalid @enderror"

@@ -33,14 +33,17 @@ class ExpensesController extends Controller
     public function post(Request $request)
     {
         $price = preg_replace('/\D/', '', $request->price);
+        $subtraction = preg_replace('/\D/', '', $request->subtraction);
         $request->merge([
             'price' => $price,
+            'subtraction' => $subtraction,
         ]);
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'title' => 'required|string',
             'quantity' => 'required|numeric|min:1',
             'price' => 'required|numeric|min:1',
+            'subtraction' => 'nullable|numeric|min:0',
             'status' => 'required',
         ]);
 
@@ -51,13 +54,16 @@ class ExpensesController extends Controller
         }
         $quantity = $request->quantity;
         $price = $request->price;
-        $totalCount = $price * $quantity;
+        $sub = ($request->subtraction ?? 0);
+
+        $totalCount = ($price * $quantity) - $sub;
         $data = Spending::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
             'title' => $request->title,
-            'image' => $fileName,
-            'quantity' => $request->quantity,
-            'price' => $request->price,
+            'image' => $fileName ?? null,
+            'quantity' => $quantity,
+            'price' => $price,
+            'subtraction' => $sub,
             'total' => $totalCount,
             'status' => $request->status
         ]);

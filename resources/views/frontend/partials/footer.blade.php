@@ -75,26 +75,10 @@
 
  <!-- ======= Back to Top =======-->
  {{-- <button id="back-to-top"><i class="bi bi-arrow-up-short"></i></button> --}}
- <button id="customer-service-btn" class="customer-service-btn">
-     <i class="bi bi-headset"></i>
+ <button class="customer-service-btn" onclick="window.open('https://wa.me/628132020558', '_blank')">
+     <i class="bi bi-whatsapp"></i>
  </button>
- <div id="chat-box" class="chat-box">
-     <div class="chat-header">
-         <span>Chat With AI</span>
-         <button id="close-chat" class="close-chat">&times;</button>
-     </div>
-     <div class="chat-body" id="chat-body">
-         <!-- Initial bot greeting -->
-         <div class="chat-message bot">
-             <div class="chat-avatar"><i class="bi bi-headset"></i></div>
-             <div class="chat-bubble">Hi! How can we help you today?</div>
-         </div>
-     </div>
-     <div class="chat-footer">
-         <input type="text" id="chat-input" placeholder="Type a message..." />
-         <button id="send-chat"><i class="bi bi-send"></i></button>
-     </div>
- </div>
+
 
  <!-- End Back to top-->
 
@@ -223,15 +207,15 @@
                                             ? "current"
                                             : "";
                                     return `
-                                                                      <div class="doc-step ${stateClass}">
-                                                                          <div class="doc-step-circle">${
-                                                                              idx + 1
-                                                                          }</div>
-                                                                          <div class="doc-step-label">${
-                                                                              s.label
-                                                                          }</div>
-                                                                      </div>
-                                                                  `;
+                                                                        <div class="doc-step ${stateClass}">
+                                                                            <div class="doc-step-circle">${
+                                                                                idx + 1
+                                                                            }</div>
+                                                                            <div class="doc-step-label">${
+                                                                                s.label
+                                                                            }</div>
+                                                                        </div>
+                                                                    `;
                                 })
                                 .join("")}
                         </div>

@@ -59,10 +59,12 @@
                                                 <div class="btn-group btn-flat btn-block">
                                                     <button type="button" class="btn btn-primary btn-sm"
                                                         data-toggle="modal"
-                                                        data-target="#updateCat{{ $item->id }}">Edit</button>
+                                                        data-target="#updateCat{{ $item->id }}"><i
+                                                            class="fas fa-bars"></i></button>
                                                     <button url="{{ route('categories.delete', $item->id) }}"
                                                         data-id="{{ $item->id }}" type="button"
-                                                        class="btn btn-danger btn-sm delete">Delete</button>
+                                                        class="btn btn-danger btn-sm delete"><i
+                                                            class="fas fa-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>

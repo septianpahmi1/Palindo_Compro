@@ -90,6 +90,7 @@
     <link href="assets/vendors/aos/aos.css" rel="stylesheet" />
     <link href="assets/css/chat.css" rel="stylesheet" />
     <link href="dist/css/timeline.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- End Styles-->
 
     <!-- ======= Theme Style =======-->

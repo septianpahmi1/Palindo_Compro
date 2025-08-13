@@ -66,17 +66,20 @@
                                             <td>{{ $item->category->name }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>
-                                                <div class="btn-group btn-flat btn-block">
+                                                <div class="btn-group  btn-block">
                                                     @if ($item->status !== 'Completed')
                                                         <button type="button" class="btn btn-primary btn-sm"
                                                             data-toggle="modal"
-                                                            data-target="#action{{ $item->id }}">Action</button>
+                                                            data-target="#action{{ $item->id }}"><i
+                                                                class="fas fa-bars"></i></button>
                                                     @endif
                                                     <a href="{{ url('/document', $item->id) }}" target="_blank"
-                                                        type="button" class="btn btn-success btn-sm">Invoice</a>
+                                                        type="button" class="btn btn-success btn-sm"><i
+                                                            class="fas fa-file-invoice"></i></a>
                                                     <button url="{{ route('documents.delete', $item->id) }}"
                                                         data-id="{{ $item->id }}" type="button"
-                                                        class="btn btn-danger btn-sm delete">Delete</button>
+                                                        class="btn btn-danger btn-sm delete"><i
+                                                            class="fas fa-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
